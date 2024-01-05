@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">แปลงหน่วยความยาว</string>
+    <string name="cm">ซม.</string>
+    <string name="inch">นิ้ว</string>
+    <string name="convert">แปลงหน่วย</string>
+    <string name="xbvd">cccc</string>
+</resources>

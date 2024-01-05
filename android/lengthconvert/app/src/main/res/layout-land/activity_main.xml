@@ -10,31 +10,31 @@
         android:id="@+id/tInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="223dp"
-        android:layout_height="89dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="257dp"
+        android:layout_height="73dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tInput">
+        app:layout_constraintStart_toEndOf="@+id/tInput"
+        app:layout_constraintTop_toTopOf="@+id/tInput">
 
         <RadioButton
             android:id="@+id/rCm"
-            android:layout_width="match_parent"
+            android:layout_width="119dp"
             android:layout_height="wrap_content"
             android:text="@string/cm" />
 
         <RadioButton
             android:id="@+id/rInch"
-            android:layout_width="match_parent"
+            android:layout_width="111dp"
             android:layout_height="wrap_content"
             android:text="@string/inch" />
     </RadioGroup>
