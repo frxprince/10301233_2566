@@ -18,7 +18,7 @@ class Activity2 : AppCompatActivity() {
  val btnMetric=findViewById<Button>(R.id.bMetric)
  val tbase=findViewById<TextView>(R.id.tBase)
  val bIEC=findViewById<Button>(R.id.bIEC)
- var inputPrefix:String
+ var inputPrefix:String=""
  val A3Receiver=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
    result:ActivityResult->if(result.resultCode == RESULT_OK){
    tbase.text=(result.data!!.getDoubleExtra("metric",0.0)
@@ -35,6 +35,10 @@ class Activity2 : AppCompatActivity() {
  var ans= tbase.text.toString().toDouble()/
          result.data!!.getDoubleExtra("iec",1.0)
   Log.i("ans","$ans "+result.data!!.getStringExtra("name"))
+ val i =Intent(this,Activity5::class.java)
+ i.putExtra("data","${eInput.text.toString()} $inputPrefix = $ans " +
+         result.data!!.getStringExtra("name") )
+  startActivity(i)
   }
   }
   bIEC.setOnClickListener {
