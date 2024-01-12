@@ -3,6 +3,7 @@ package com.example.binaryprefix
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -29,6 +30,16 @@ class Activity2 : AppCompatActivity() {
  val i= Intent(this,Activity3::class.java)
  A3Receiver.launch(i)
  }
+  val A4Receiver=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+   result:ActivityResult->if(result.resultCode== RESULT_OK){
+ var ans= tbase.text.toString().toDouble()/
+         result.data!!.getDoubleExtra("iec",1.0)
+  Log.i("ans","$ans "+result.data!!.getStringExtra("name"))
+  }
+  }
+  bIEC.setOnClickListener {
+  val i =Intent(this,Activity4::class.java); A4Receiver.launch(i)
+  }
 
     }
 }
