@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 class Activity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
         setContentView(R.layout.activity_2)
  val eInput=findViewById<EditText>(R.id.eInput)
  val btnMetric=findViewById<Button>(R.id.bMetric)
@@ -45,5 +46,10 @@ class Activity2 : AppCompatActivity() {
   val i =Intent(this,Activity4::class.java); A4Receiver.launch(i)
   }
 
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
     }
 }
