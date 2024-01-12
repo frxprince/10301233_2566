@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bwww"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="WWW"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="MAP"
+        app:layout_constraintEnd_toEndOf="@+id/bwww"
+        app:layout_constraintStart_toStartOf="@+id/bwww"
+        app:layout_constraintTop_toBottomOf="@+id/bwww" />
+
+    <Button
+        android:id="@+id/btimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Timer"
+        app:layout_constraintEnd_toEndOf="@+id/bmap"
+        app:layout_constraintStart_toStartOf="@+id/bmap"
+        app:layout_constraintTop_toBottomOf="@+id/bmap" />
+
+    <Button
+        android:id="@+id/bphonebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Phonebook"
+        app:layout_constraintEnd_toEndOf="@+id/btimer"
+        app:layout_constraintStart_toStartOf="@+id/btimer"
+        app:layout_constraintTop_toBottomOf="@+id/btimer" />
+</androidx.constraintlayout.widget.ConstraintLayout>
