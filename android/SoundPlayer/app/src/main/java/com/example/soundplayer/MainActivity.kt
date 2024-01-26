@@ -1,9 +1,12 @@
 package com.example.soundplayer
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
@@ -33,10 +36,23 @@ class MainActivity : AppCompatActivity() {
     btnStop.setOnClickListener { Mp.stop() }
     btnInternet.setOnClickListener {
    Mp=MediaPlayer()
-   Mp.setDataSource(this, Uri.parse(
-       "https://www.drpaween.com/ohm/mp3test.mp3"))
-   Mp.prepare()
+   //Mp.setDataSource(this, Uri.parse(
+    //   "https://www.drpaween.com/ohm/mp3test.mp3"))
+          Mp.setDataSource(this, Uri.parse(
+           "http://112.121.150.133:9000/stream?type=http&nocache=160"))
+
+        Mp.prepare()
     }
+if(checkSelfPermission(Manifest.permission.READ_MEDIA_AUDIO)!=
+    PackageManager.PERMISSION_GRANTED)
+    requestPermissions(arrayOf(Manifest.permission.READ_MEDIA_AUDIO),1234)
+btnSDCARD.setOnClickListener {
+    Mp= MediaPlayer()
+    Mp.setDataSource( Environment.getExternalStorageDirectory().absolutePath+  "/song.mp3")
+    Mp.prepare()
+}
+
+
 
     }
 }
