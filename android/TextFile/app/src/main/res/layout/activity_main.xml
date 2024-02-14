@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read Resource"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eText" />
+
+    <Button
+        android:id="@+id/bAssets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read Assets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bResource" />
+
+    <Button
+        android:id="@+id/bSDcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write to SDCARD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bAssets" />
+
+    <Button
+        android:id="@+id/bReadSDCARD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read SDCARD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bSDcard" />
+
+    <EditText
+        android:id="@+id/eText"
+        android:layout_width="377dp"
+        android:layout_height="241dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
