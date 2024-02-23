@@ -34,22 +34,26 @@ class MainActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener,Sens
     spinner.adapter=adapter
       spinner.onItemSelectedListener=this; sensor=allsensor[0]
     }
-
+    override fun onPause() {
+        super.onPause()
+        manager.unregisterListener(this,sensor)
+    }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+if (sensor!=null) manager.unregisterListener(this,sensor)
 sensor=allsensor[position]
 txtInfo.text="Name:${sensor.name}\nVender:${sensor.vendor}\nVersion:${sensor.version
 }\nMax:${sensor.maximumRange}\nResolution${sensor.resolution}"
+ manager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
     }
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-
-    }
-
   override fun onSensorChanged(event: SensorEvent?) {
-
+var msg:String=""; for((index,item) in event!!.values.withIndex())msg+="Parameter[$index]=$item\n"
+  txtData.text=msg
   }
 
   override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
   }
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+
+    }
 }
