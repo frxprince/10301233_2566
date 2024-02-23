@@ -32,10 +32,13 @@ class MainActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener,Sens
      var adapter=ArrayAdapter(this,
        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,sensor_name)
     spinner.adapter=adapter
+      spinner.onItemSelectedListener=this; sensor=allsensor[0]
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
+sensor=allsensor[position]
+txtInfo.text="Name:${sensor.name}\nVender:${sensor.vendor}\nVersion:${sensor.version
+}\nMax:${sensor.maximumRange}\nResolution${sensor.resolution}"
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
