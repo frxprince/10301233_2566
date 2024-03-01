@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity(),SensorEventListener {
     manager=getSystemService(SENSOR_SERVICE) as SensorManager
     sensor=manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) as Sensor
         seekbar.max=180
+     seekbar.progressDrawable=getDrawable(R.mipmap.bgwhite)
+     seekbar.background=getDrawable(R.mipmap.bgred)
     }
     override fun onSensorChanged(event: SensorEvent?) {
       var x=event!!.values[0];var y=event!!.values[1];var z=event!!.values[2]
