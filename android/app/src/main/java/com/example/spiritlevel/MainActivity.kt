@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.TextView
+import kotlin.math.PI
+import kotlin.math.atan2
 
 class MainActivity : AppCompatActivity(),SensorEventListener {
    lateinit var txtData:TextView
@@ -23,10 +25,13 @@ class MainActivity : AppCompatActivity(),SensorEventListener {
         seekbar=findViewById(R.id.seekBar)
     manager=getSystemService(SENSOR_SERVICE) as SensorManager
     sensor=manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) as Sensor
+        seekbar.max=180
     }
     override fun onSensorChanged(event: SensorEvent?) {
       var x=event!!.values[0];var y=event!!.values[1];var z=event!!.values[2]
     txtData.text="X:$x\nY:$y\nZ:$z"
+     var degree=  180-((atan2(x,y)/PI)*180.0)-90
+     txtDegree.text="$degree" ; seekbar.progress=90-degree.toInt()
     }
     override fun onResume() {
         super.onResume()
