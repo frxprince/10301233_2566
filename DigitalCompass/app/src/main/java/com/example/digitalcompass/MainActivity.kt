@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(),SeekBar.OnSeekBarChangeListener,SensorE
     }
     override fun onSensorChanged(event: SensorEvent?) {
 var x=event!!.values[0];var y=event!!.values[1]
- var degree= (-atan2(x.toDouble(),y.toDouble())/PI)*180; txtBearing.text="$degree"
+ var degree= (-atan2(y.toDouble(),x.toDouble())/PI)*180; txtBearing.text="$degree"
  dial.rotation=degree.toFloat()-180
     }
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
