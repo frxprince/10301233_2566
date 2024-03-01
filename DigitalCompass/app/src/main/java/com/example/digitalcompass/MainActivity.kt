@@ -9,6 +9,9 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
+import kotlin.math.PI
+import kotlin.math.atan
+import kotlin.math.atan2
 
 class MainActivity : AppCompatActivity(),SeekBar.OnSeekBarChangeListener,SensorEventListener {
     lateinit var seekbar:SeekBar
@@ -35,9 +38,10 @@ class MainActivity : AppCompatActivity(),SeekBar.OnSeekBarChangeListener,SensorE
         manager.unregisterListener(this,sensor)
     }
     override fun onSensorChanged(event: SensorEvent?) {
-
+var x=event!!.values[0];var y=event!!.values[1]
+ var degree= (-atan2(x.toDouble(),y.toDouble())/PI)*180; txtBearing.text="$degree"
+ dial.rotation=degree.toFloat()-180
     }
-
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
    dial.rotation=seekBar!!.progress.toFloat()-180
     }
