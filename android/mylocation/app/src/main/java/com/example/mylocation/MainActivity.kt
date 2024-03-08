@@ -27,9 +27,9 @@ if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManage
   GPS=getSystemService(LOCATION_SERVICE) as LocationManager
     }
     override fun onResume() { super.onResume();
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED)
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED)
         GPS.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10f,this)     }
-   override fun onPause() { super.onPause()    }
+   override fun onPause() { super.onPause();GPS.removeUpdates(this)    }
     override fun onLocationChanged(location: Location) {
 txtLocation.text="Lat:${location.longitude}\nLong:${location.longitude}\nAlt:${location.altitude}"+
         "\nTime:${location.time}\nSpeed:${location.speed}\nBearing:${location.bearing}"
